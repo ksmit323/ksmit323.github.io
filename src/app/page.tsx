@@ -26,6 +26,8 @@ const StarField: React.FC = () => {
     }));
 
     function animate() {
+      if (!canvas || !ctx) return;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = 'white';
       stars.forEach(star => {
@@ -43,8 +45,10 @@ const StarField: React.FC = () => {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
     };
 
     window.addEventListener('resize', handleResize);
