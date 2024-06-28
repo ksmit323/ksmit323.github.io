@@ -1,10 +1,13 @@
+// 'use client';
+
 import './globals.css'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Header from '../components/common/Header'
+import Footer from '../components/common/Footer'
 
 export const metadata: Metadata = {
   title: 'My Cosmic Portfolio',
-  description: 'A showcase of my projects and blog posts',
+  description: 'Exploring the universe of Blockchain',
 }
 
 export default function RootLayout({
@@ -14,17 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <nav className="bg-gray-800 text-white p-4">
-          <ul className="flex space-x-4">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/projects">Projects</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-          </ul>
-        </nav>
-        {children}
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
