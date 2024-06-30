@@ -221,6 +221,25 @@ const CosmicAboutPage: React.FC = () => {
                 Download Cosmic CV
               </a>
             </motion.div>
+
+            {/* CV Viewer */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.5 }}
+              className="mt-8"
+            >
+              <div className="bg-white rounded-lg shadow-lg p-4 h-[600px]">
+                <object
+                  data="/Kenneth_Smith_CV.pdf"
+                  type="application/pdf"
+                  width="100%"
+                  height="100%"
+                >
+                  <p>It appears you do not have a PDF plugin for this browser. You can <a href="/Kenneth_Smith_CV.pdf">click here to download the PDF file</a></p>
+                </object>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
