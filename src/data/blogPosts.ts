@@ -9,28 +9,51 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: 1,
-    title: "Navigating the Quantum Realm: My Journey Through Advanced Physics",
-    date: "2023-06-15",
-    readTime: "8 min",
-    excerpt: "Exploring the fascinating world of quantum mechanics and its implications for future technology.",
-    slug: "quantum-realm-journey"
+    id: 6,
+    title: "Zero Knowledge Bootcamp: My Six-Week Dive into the World of ZK Proofs",
+    date: "2024-06-28",
+    readTime: "5 min",
+    excerpt: "Exploring the fascinating world of ZK proofs, ZK-SNARKs and the future of Cryptography",
+    slug: "zkbootcamp"
   },
   {
-    id: 2,
-    title: "Hackathon Triumph: Building a Neural Network from Scratch",
-    date: "2023-07-22",
-    readTime: "12 min",
-    excerpt: "A detailed account of how I developed a neural network using only fundamental programming concepts.",
-    slug: "neural-network-hackathon"
+    id: 5,
+    title: "Vietnam Rust Web3 Hackathon: Becoming a finalist and a speaker at a Blockchain conference",
+    date: "2024-06-07",
+    readTime: "5 min",
+    excerpt: "My experience build a market maker bot for a Rust Web3 hackathon in Vietnam",
+    slug: "vietnam-rust-hackathon"
+  },
+  {
+    id: 4,
+    title: "Scaling Web3 Hackathon: Winning my Second Hackathon with Orderly Network",
+    date: "2024-04-23",
+    readTime: "5 min",
+    excerpt: "Key takeaways from my experience winning the Orderly bounty for the Scaling Web3 Hackathon",
+    slug: "scaling-web3-hackathon"
   },
   {
     id: 3,
-    title: "The Future of AI: Insights from the Global Tech Summit",
-    date: "2023-08-30",
-    readTime: "10 min",
-    excerpt: "Key takeaways and predictions about artificial intelligence from world-renowned experts at the summit.",
-    slug: "ai-future-insights"
+    title: "Viction Blockchain Hackathon: GameFi and Winning my First Hackathon",
+    date: "2024-01-15",
+    readTime: "5 min",
+    excerpt: "Diving head first into GameFi and winning a hackathon in the process",
+    slug: "viction-hackathon"
   },
-  // Add more blog posts as needed
+  {
+    id: 2,
+    title: "Expert Solidity Coding Bootcamp: Elevating my Solidity skillset",
+    date: "2023-11-30",
+    readTime: "5 min",
+    excerpt: "A detailed account of my exploration into the depths of Solidity",
+    slug: "expert-solidity-bootcamp"
+  },
+  {
+    id: 1,
+    title: "Solidity/Blockchain Intensive Coding Bootcamp: My journey into Solidity",
+    date: "2023-08-30",
+    readTime: "5 min",
+    excerpt: "Beginning my journey into the world of Smart Contract development",
+    slug: "solidity-blockchain-bootcamp"
+  },
 ];
