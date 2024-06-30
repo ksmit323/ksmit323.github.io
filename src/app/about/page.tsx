@@ -65,6 +65,48 @@ const CosmicAboutPage: React.FC = () => {
         }}
       />
 
+      <div className="container mx-auto relative z-10">
+        <motion.h1
+          className="text-6xl font-bold mb-8 text-center"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1}}
+        >
+          About this Cosmic Explorer
+        </motion.h1>
+
+        <div className="flex flex-col md: flex-row gap-8">
+          {/* Profile picture */}
+          <motion.div
+            className="md:w-1/3"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <div className="relative w-64 h-64 mx-auto">
+              <div className="w-full h-full rounded-full border-4 border-blue-500 shadow-lg shadow-blue-500/50 overflow-hidden">
+                <img
+                  src="/profile.png"
+                  alt="Kenneth Smith"
+                  className="w-full h-full object-cover"
+                  />
+              </div>
+              <motion.div
+                className="absolute inset-0 rounded-full border-4 border-transparent"
+                animate={{
+                  borderColor: ['rgba(59, 130, 246, 0.5)', 'rgba(167, 139, 250, 0.5)'],
+                  rotate: 360,
+                }}
+                transition={{
+                  duration: 3, 
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   )
 }
