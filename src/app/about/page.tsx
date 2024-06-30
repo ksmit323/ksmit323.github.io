@@ -86,7 +86,7 @@ const CosmicAboutPage: React.FC = () => {
             <div className="relative">
               <img
                 src="/profile.png"
-                alt='Kenneth "Kosmic Ken" Smith'
+                alt="Kosmos Ken"
                 className="rounded-full w-64 h-64 mx-auto object-cover border-4 border-blue-500 shadow-lg shadow-blue-500/50"
               />
               <motion.div
@@ -142,16 +142,16 @@ const CosmicAboutPage: React.FC = () => {
                   <div>
                     <h2 className="text-3xl font-bold mb-4">Cosmic Journey</h2>
                     <p className="mb-4">
-                      Greetings fellow Cryptonauts! I'm Kenneth Smith, a cosmic explorer
+                      Greetings fellow Cryptonauts! My name is Kenneth Smith, a cosmic explorer
                       navigating the vast universe of the Crypto Cosmos.  With a passion
-                      for Blockchain, I've embarked on a mission to bring Crypto to every
+                      for Blockchain, I have embarked on a mission to bring Crypto to every
                       corner of the universe.
                     </p>
                     <p>
                       My journey through the Crypto Cosmos has led me to discover fascinating
                       new worlds of ideas and innovations.  Join me as we traverse the galaxies
                       of software development in the Blockchain space, charting new territories
-                      and pushing the boundaries of what's possible. 
+                      and pushing the boundaries of what is possible. 
                     </p>
                   </div>
                 )}
