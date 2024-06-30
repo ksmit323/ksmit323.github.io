@@ -140,9 +140,9 @@ const CosmicAboutPage: React.FC = () => {
               >
                 {activeSection == 'bio' && (
                   <div>
-                    <h2 className="text-3xl font-bold mb-4">Cosmic Journey</h2>
+                    <h2 className="text-3xl font-bold mb-4">Kenneth Scott Smith</h2>
                     <p className="mb-4">
-                      Greetings fellow Cryptonauts! My name is Kenneth Smith, a cosmic explorer
+                      Greetings fellow Cryptonauts! My name is Kenneth Scott Smith, a cosmic explorer
                       navigating the vast universe of the Crypto Cosmos.  With a passion
                       for Blockchain, I have embarked on a mission to bring Crypto to every
                       corner of the universe.
@@ -160,7 +160,7 @@ const CosmicAboutPage: React.FC = () => {
                   <div>
                     <h2 className="text-3xl font-bold mb-4">Cosmic Toolkit</h2>
                     <ul className="grid grid-cols-2 gap-4">
-                      {['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4', 'Skill 5', 'Skill 6'].map(
+                      {['Solidity', 'C', 'Rust', 'Typescript', 'Python', 'Move/Noir/Cairo'].map(
                         (skill, index) => (
                           <motion.li
                             key={skill}
@@ -183,10 +183,13 @@ const CosmicAboutPage: React.FC = () => {
                     <h2 className="text-3xl font-bold mb-4">Celestial Milestones</h2>
                     <ul className="space-y-4">
                       {[
-                        'Achievement 1',
-                        'Achievement 2',
-                        'Achievement 3',
-                        'Achievement 4',
+                        '🥇 1st Place - Scaling Web3 Hackacthon, Orderly Network Bounty',
+                        '🥇 1st Place - Viction Blockchain Hackathon Gaming track',
+                        '🥇 Finalist - Vietnam Rust Web3 Hackathon',
+                        'Completed ZK Proofs Bootcamp',
+                        'Completed Expert Solidity Coding Bootcamp',
+                        'Completed Solidity/Blockchain Intensive Coding Bootcamp',
+                        'Bachelors of Science degree in Mechanical Engineering',
                       ].map((achievement, index) => (
                         <motion.li
                           key={achievement}
