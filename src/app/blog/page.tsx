@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ChevronRight } from 'lucide-react';
 import { blogPosts, BlogPost } from '@/data/blogPosts';
 
+
 const StarField: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none">

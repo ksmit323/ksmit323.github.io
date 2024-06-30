@@ -26,7 +26,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const post = await getPost(params.slug);
 
   if (!post) {
-    // You might want to handle this case differently, perhaps by redirecting to a 404 page
+    //! Might want to handle this case differently, perhaps by redirecting to a 404 page
     return <div>Post not found</div>;
   }
 
