@@ -80,7 +80,7 @@ const LandingPage: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Exploring the universe of Blockchain
+          Exploring the Crypto Cosmos and the Blockchain Universe
         </motion.p>
         <motion.div
           className="space-x-4"
