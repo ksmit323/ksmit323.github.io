@@ -21,7 +21,7 @@ const CosmicAboutPage: React.FC = () => {
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 2 + _1,
+      size: Math.random() * 2 + 1,
     })));
   }, []);
 
@@ -51,6 +51,20 @@ const CosmicAboutPage: React.FC = () => {
           }}
         />
       ))}
+
+      {/* Nebula Effect */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 pointer-events-none"
+        animate={{
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+      />
+
     </div>
   )
 }
