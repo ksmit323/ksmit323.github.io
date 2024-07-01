@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     title: "Vietnam Rust Web3 Hackathon: Becoming a finalist and a speaker at a Blockchain conference",
     date: "2024-06-07",
     readTime: "5 min",
-    excerpt: "My experience build a market maker bot for a Rust Web3 hackathon in Vietnam",
+    excerpt: "My experience building a market maker bot for a Rust Web3 hackathon in Vietnam",
     slug: "vietnam-rust-hackathon"
   },
   {
