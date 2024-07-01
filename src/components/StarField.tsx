@@ -1,25 +1,50 @@
+import React, { useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 
+const NUMBER_OF_STARS = 400;
+
+interface Star {
+  id: number;
+  size: number;
+  top: string;
+  left: string;
+  duration: number;
+}
+
 const StarField: React.FC = () => {
+  const generateStar = useCallback((id: number): Star => {
+    return {
+      id,
+      size: Math.random() * 2 + 1,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      duration: Math.random() * 3 + 2,
+    };
+  }, []);
+
+  const stars = useMemo(() => {
+    return [...Array(NUMBER_OF_STARS)].map((_, i) => generateStar(i));
+  }, [generateStar]);
+
   return (
     <div className="fixed inset-0 pointer-events-none">
-      {[...Array(200)].map((_, i) => (
+      {stars.map((star) => (
         <motion.div
-          key={i}
+          key={star.id}
           className="absolute bg-white rounded-full"
           style={{
-            width: Math.random() * 2 + 1 + 'px',
-            height: Math.random() * 2 + 1 + 'px',
-            top: Math.random() * 100 + '%',
-            left: Math.random() * 100 + '%',
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            top: star.top,
+            left: star.left,
           }}
           animate={{
             opacity: [0, 1, 0],
             scale: [0, 1, 0],
           }}
           transition={{
-            duration: Math.random() * 3 + 2,
+            duration: star.duration,
             repeat: Infinity,
             repeatType: 'loop',
           }}
