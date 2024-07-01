@@ -11,7 +11,7 @@ import CosmicBackground from '@/components/CosmicBackground';
 const CosmicChronicleNebula: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8 relative overflow-hidden">
-      <StarField />
+      <CosmicBackground />
       <motion.h1
         className="text-4xl font-bold mb-8 text-center"
         initial={{ y: -50, opacity: 0 }}
