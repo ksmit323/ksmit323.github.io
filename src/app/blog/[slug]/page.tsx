@@ -1,9 +1,6 @@
-// Server Component
 import { blogPosts } from '@/data/blogPosts';
-import BlogPostContent from './BlogPostContent';
+import BlogContent from '@/components/BlogContent';
 import { notFound } from 'next/navigation';
-
-
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -16,5 +13,5 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   if (!post) notFound();
 
-  return <BlogPostContent post={post} />;
+  return <BlogContent post={post} />;
 }

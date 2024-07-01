@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogPosts';
 import BlogPostCard from '@/components/BlogPostCard';
-import StarField from '@/components/StarField';
 import CosmicBackground from '@/components/CosmicBackground';
 
 
