@@ -42,9 +42,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
-    title: "Expert Solidity Coding Bootcamp: Elevating my Solidity skillset",
+    title: "Journey into the Blockchain Cosmos: Expert Solidity Bootcamp",
     date: "2023-11-30",
-    readTime: "5 min",
+    readTime: "8 min",
     excerpt: "A detailed account of my exploration into the depths of Solidity",
     slug: "expert-solidity-bootcamp"
   },
@@ -52,7 +52,7 @@ export const blogPosts: BlogPost[] = [
     id: 1,
     title: "Journey into the Blockchain Cosmos: The Solidity Intensive Coding Bootcamp",
     date: "2023-08-30",
-    readTime: "8 min",
+    readTime: "10 min",
     excerpt: "Beginning my journey into the world of Smart Contract development",
     slug: "solidity-blockchain-bootcamp"
   },
