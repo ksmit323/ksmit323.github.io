@@ -27,7 +27,7 @@ const BlogContent = ({ post }: { post: BlogPost }) => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
       <CosmicBackground />
       <motion.div
         initial={{ opacity: 0 }}
@@ -42,7 +42,7 @@ const BlogContent = ({ post }: { post: BlogPost }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <span>{post.date}</span>
+          <span>Stardate: {post.date}</span>
           <Star size={16} className="text-yellow-300" />
           <span>{post.readTime}</span>
         </motion.div>
