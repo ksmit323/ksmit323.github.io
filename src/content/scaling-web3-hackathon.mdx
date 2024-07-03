@@ -1,0 +1,128 @@
+# Captains Log | Funding Rate Arbitrage
+
+## The Arbitrage Maneuver
+
+In this spacetime adventure, we navigate the astronomical world of Crypto Perpetual Futures.  The dark energy that lurks in this realm creates arbitrage opportunities
+for a cryptonaut to mine some celestial resources. Thus bringing us to our latest mission: The Scaling Web3 Hackathon, where we set our sights on a challenging yet 
+rewarding task: funding rate arbitrage across perpetual DEX's, and *the victory that followed*...
+<br></br>
+
+## Mission Overview: Funding Rate Arbitrage
+<br></br>
+
+### Concept and Strategy
+Funding rate arbitrage exploits the differences in funding rates between long and short positions across various DEXs. In perpetual futures markets, 
+funding rates ensure the contract price remains close to the spot price. Disparities in these rates across different platforms create opportunities for arbitrage.
+<br></br>
+
+### Core Mechanics
+
+- **Funding Rate Comparison** 
+
+        I developed a program to fetch and compare funding rates from multiple DEXs, including Orderly, Hyperliquid, and ApexPro.
+
+- **Arbitrage Execution** 
+
+        By identifying DEXs with the highest and lowest funding rates, we strategically placed short and long positions to profit from the rate differences. This involved shorting on a DEX with a higher funding rate and longing on one with a lower rate.
+- **Automation and Monitoring** 
+
+        Our solution included a user-friendly interface for monitoring balances, open positions, and executing arbitrage strategies efficiently.
+<br></br>
+
+<YouTubeEmbed videoId="BAaTna9l1AA" start={2370} /> 
+<br></br>
+<br></br>
+
+## Technical Implementation
+<br></br>
+
+### Backend Development
+The backend was developed to manage the core functionalities of the arbitrage strategy.
+<br></br>
+
+- **Funding Rate Retrieval** 
+
+        Implemented APIs to fetch current funding rates from supported DEXs.
+<br></br>
+
+- **Arbitrage Strategy Execution** 
+
+        Designed algorithms to identify profitable arbitrage opportunities and execute trades accordingly.
+<br></br>
+
+- **Order Management** 
+
+        Built functionalities to manage open positions, cancel orders, and track USDC balances across exchanges.    
+<br></br>
+
+<img src="/fr_table.png" alt="fr table" />
+<br></br>
+
+### Project Structure
+
+- **main.py** 
+
+        Entry point for the application, providing an interface for users to interact with the arbitrage features.
+<br></br>
+
+- **DEX Implementations**
+
+        Separate modules for each supported DEX, ensuring modularity and ease of extension.
+<br></br>
+
+- **Arbitrage Strategies** 
+
+        Core logic for comparing funding rates and executing trades.
+<br></br>
+
+### Frontend Interface
+While the primary focus was on backend functionalities, we also developed a simple, intuitive frontend to enhance user interaction.
+
+- **View Balances** 
+
+        Users can view their USDC balances across all supported DEXs.
+<br></br>
+
+- **Manage Positions** 
+
+        Interface for viewing and closing open positions, as well as canceling open orders.
+<br></br>
+
+- **Execute Strategies** 
+
+        Users can initiate the funding rate arbitrage strategy, providing details such as asset symbol, DEX selection, and order quantity.
+<br></br>
+
+<img src="/frontend.png" alt="frontend" />
+<br></br>
+
+### Key Features and Enhancements
+
+- **Modular Design** 
+
+        The program's modular structure allows for easy integration of additional DEXs and customization of arbitrage strategies.
+<br></br>
+
+- **Real-Time Data** 
+
+        Continuously fetches and updates funding rates, ensuring timely and accurate arbitrage opportunities.
+<br></br>
+
+- **User-Friendly Interface** 
+        Simplifies the process of managing positions and executing arbitrage strategies, making it accessible even for those new to arbitrage trading.
+<br></br>
+
+## Victory and Reflection
+Wooh! What a cosmological journey down the ever expansion of space in the Crypto Futures world.  Quite the quantum entanglement that can be. 
+Winning the Orderly Network bounty at the Scaling Web3 Hackathon was a stellar achievement. 
+The project demonstrated the ability to blend complex financial strategies with robust blockchain development.
+<br></br>
+
+As we look forward to future missions, this victory serves as a testament to proper space exploration. The blockchain universe is vast, and with each project, we push into a new frontier. Stay tuned for more adventures from the blockchain cosmos!
+<br></br>
+
+<a href="https://orderly.network/blog/best-use-orderly-encode-hackathon-winners" style={{ color: 'orange', textDecoration: 'underline' }}>Click here to read the article about the winners</a>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
