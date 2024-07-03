@@ -1,5 +1,5 @@
 import { blogPosts } from '@/data/blogPosts';
-import BlogContent from '@/components/BlogContent';
+import BlogContent from '@/components/BlogContent/BlogContent';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
