@@ -50,9 +50,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 1,
-    title: "Solidity/Blockchain Intensive Coding Bootcamp: My journey into Solidity",
+    title: "Journey into the Blockchain Cosmos: The Solidity Intensive Coding Bootcamp",
     date: "2023-08-30",
-    readTime: "5 min",
+    readTime: "8 min",
     excerpt: "Beginning my journey into the world of Smart Contract development",
     slug: "solidity-blockchain-bootcamp"
   },
