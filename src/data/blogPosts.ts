@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 3,
-    title: "Viction Blockchain Hackathon: GameFi and Winning my First Hackathon",
+    title: "Winning my First Hackathon: GameFi and the Viction Blockchain Hackathon",
     date: "2024-01-15",
     readTime: "5 min",
     excerpt: "Diving head first into GameFi and winning a hackathon in the process",
