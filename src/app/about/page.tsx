@@ -175,7 +175,7 @@ const CosmicAboutPage: React.FC = () => {
                       {[
                         'Email: ksmit323@gmail.com',
                         'Telegram: @ksmit323',
-                        'WhatsApp: +84-77-665-5607',
+                        'Discord: mrpresident323',
                       ].map((contact, index) => (
                         <motion.li
                           key={contact}
