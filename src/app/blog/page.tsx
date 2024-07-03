@@ -9,15 +9,15 @@ import CosmicBackground from '@/components/CosmicBackground';
 
 const CosmicChronicleNebula: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
       <CosmicBackground />
       <motion.h1
-        className="text-4xl font-bold mb-8 text-center"
+        className="text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 text-center"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        Cosmic Chronicles
+        Cosmic Chronicles 
       </motion.h1>
       <div className="max-w-3xl mx-auto">
         {blogPosts.map((post) => (
