@@ -9,12 +9,14 @@ import { MDXProvider } from '@mdx-js/react';
 import { Star } from 'lucide-react';
 import CosmicBackground from '@/components/CosmicBackground';
 import { Heading, Divider, H1, H2, H3, UL } from './index';
+import YouTubeEmbed from './YouTubeEmbed';
 
 const components = {
   h1: H1,
   h2: H2,
   h3: H3,
   ul: UL,
+  YouTubeEmbed,
 };
 
 const BlogContent = ({ post }: { post: BlogPost }) => {
