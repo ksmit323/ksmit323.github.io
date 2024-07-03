@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
-    title: "Scaling Web3 Hackathon: Winning my Second Hackathon with Orderly Network",
+    title: "Winning my Second Hackathon: Scaling Web3 Hackathon and the Orderly Network",
     date: "2024-04-23",
     readTime: "5 min",
     excerpt: "Key takeaways from my experience winning the Orderly bounty for the Scaling Web3 Hackathon",
