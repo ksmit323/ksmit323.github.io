@@ -8,13 +8,15 @@ import { BlogPost } from '@/data/blogPosts';
 import { MDXProvider } from '@mdx-js/react';
 import { Star } from 'lucide-react';
 import CosmicBackground from '@/components/CosmicBackground';
-import { Heading, Divider, H1, H2, H3, LI } from './index';
+import { Heading, Divider, H1, H2, H3, H4, H5, LI } from './index';
 import YouTubeEmbed from './YouTubeEmbed';
 
 const components = {
   h1: H1,
   h2: H2,
   h3: H3,
+  h4: H4,
+  h5: H5,
   li: LI,
   YouTubeEmbed,
 };

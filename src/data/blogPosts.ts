@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     id: 5,
     title: "Vietnam Rust Web3 Hackathon: Becoming a finalist and a speaker at a Blockchain conference",
     date: "2024-06-07",
-    readTime: "5 min",
+    readTime: "8 min",
     excerpt: "My experience building a market maker bot for a Rust Web3 hackathon in Vietnam",
     slug: "vietnam-rust-hackathon"
   },
@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
     id: 4,
     title: "Winning my Second Hackathon: Scaling Web3 Hackathon and the Orderly Network",
     date: "2024-04-23",
-    readTime: "5 min",
+    readTime: "6 min",
     excerpt: "Key takeaways from my experience winning the Orderly bounty for the Scaling Web3 Hackathon",
     slug: "scaling-web3-hackathon"
   },

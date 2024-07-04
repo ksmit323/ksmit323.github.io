@@ -1,13 +1,13 @@
 import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
+import rehypeHighlight from 'rehype-highlight';
 
-const withMDX = createMDX({
+const withMDX = createMDX({ 
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
+    rehypePlugins: [rehypeHighlight],
+    providerImportSource: "@mdx-js/react",
   },
 })
 
