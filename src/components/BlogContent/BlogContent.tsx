@@ -8,7 +8,7 @@ import { BlogPost } from '@/data/blogPosts';
 import { MDXProvider } from '@mdx-js/react';
 import { Star } from 'lucide-react';
 import CosmicBackground from '@/components/CosmicBackground';
-import { Heading, Divider, H1, H2, H3, H4, H5, LI } from './index';
+import { Heading, Divider, H1, H2, H3, H4, H5, H6, LI } from './index';
 import YouTubeEmbed from './YouTubeEmbed';
 
 const components = {
@@ -17,6 +17,7 @@ const components = {
   h3: H3,
   h4: H4,
   h5: H5,
+  h6: H6,
   li: LI,
   YouTubeEmbed,
 };
