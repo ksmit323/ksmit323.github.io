@@ -6,9 +6,9 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-        { Icon: Github, href: 'https://github.com/ksmit323' },
-        { Icon: Linkedin, href: 'https://www.linkedin.com/in/kenneth-smith-50553493/' },
-        { Icon: Mail, href: 'mailto:ksmit323@gmail.com' },
+    { Icon: Mail, href: 'mailto:ksmit323@gmail.com' },
+    { Icon: Github, href: 'https://github.com/ksmit323' },
+    { Icon: Linkedin, href: 'https://www.linkedin.com/in/kenneth-smith-50553493/' },
   ];
 
   return (
@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 15 }}
     >
-      <div className="container mx-auto flex justify-center items-center">
-        <div className="flex space-x-6">
+      <div className="container mx-auto flex flex-col items-center">
+        <div className="flex space-x-6 mb-2">
           {socialLinks.map(({ Icon, href }, index) => (
             <motion.a
               key={index}
@@ -33,6 +33,7 @@ const Footer: React.FC = () => {
             </motion.a>
           ))}
         </div>
+        <span className="text-sm text-white">Kenneth Scott Smith</span>
       </div>
     </motion.footer>
   );
