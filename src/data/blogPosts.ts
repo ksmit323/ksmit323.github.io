@@ -12,7 +12,7 @@ export const blogPosts: BlogPost[] = [
     id: 6,
     title: "Zero Knowledge Bootcamp: My Six-Week Dive into the World of ZK Proofs",
     date: "2024-06-28",
-    readTime: "5 min",
+    readTime: "9 min",
     excerpt: "Exploring the fascinating world of ZK proofs, ZK-SNARKs and the future of Cryptography",
     slug: "zkbootcamp"
   },
