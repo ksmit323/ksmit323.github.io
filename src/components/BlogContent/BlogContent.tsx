@@ -10,6 +10,7 @@ import { Star } from 'lucide-react';
 import CosmicBackground from '@/components/CosmicBackground';
 import { Heading, Divider, H1, H2, H3, H4, H5, H6, LI, OL } from './index';
 import YouTubeEmbed from './YouTubeEmbed';
+import LinkButton from './LinkButton';
 
 const components = {
   h1: H1,
@@ -21,6 +22,7 @@ const components = {
   li: LI,
   ol: OL,
   YouTubeEmbed,
+  LinkButton
 };
 
 const BlogContent = ({ post }: { post: BlogPost }) => {
