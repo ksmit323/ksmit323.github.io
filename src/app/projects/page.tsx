@@ -2,73 +2,8 @@
 
 import React, { useState, useEffect, useMemo, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import StarField from '@/components/StarField';
 
-interface StarProps {
-  x: number;
-  y: number;
-}
-
-const Star: React.FC<StarProps> = ({ x, y }) => (
-  <motion.div
-    className="absolute rounded-full bg-white"
-    style={{
-      x,
-      y,
-      width: Math.random() * 2 + 1,
-      height: Math.random() * 2 + 1,
-    }}
-    animate={{
-      opacity: [0, 1, 0],
-      scale: [0, 1, 0],
-    }}
-    transition={{
-      duration: Math.random() * 3 + 2,
-      repeat: Infinity,
-      repeatType: 'reverse',
-    }}
-  />
-);
-
-interface StarFieldProps {
-  children: ReactNode;
-}
-
-interface Star {
-  id: number;
-  x: number;
-  y: number;
-}
-
-const StarField: React.FC<StarFieldProps> = ({ children }) => {
-  const [stars, setStars] = useState<Star[]>([]);
-
-  useEffect(() => {
-    const generateStars = () => {
-      const newStars: Star[] = [];
-      for (let i = 0; i < 200; i++) {
-        newStars.push({
-          id: i,
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-        });
-      }
-      setStars(newStars);
-    };
-
-    generateStars();
-    window.addEventListener('resize', generateStars);
-    return () => window.removeEventListener('resize', generateStars);
-  }, []);
-
-  return (
-    <div className="relative w-full h-screen bg-black overflow-hidden">
-      {stars.map((star) => (
-        <Star key={star.id} x={star.x} y={star.y} />
-      ))}
-      {children}
-    </div>
-  );
-};
 
 interface ConstellationProps {
   name: string;
@@ -232,8 +167,8 @@ const CosmicProjectsPage = () => {
   ];
 
   return (
-    <StarField>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <StarField />
         <motion.h1 
           className="text-white text-5xl font-bold mb-8"
           initial={{ y: -50, opacity: 0 }}
@@ -250,11 +185,10 @@ const CosmicProjectsPage = () => {
         >
           ... FOR NOW.
         </motion.h1>
-      </div>
       {constellations.map((constellation) => (
         <Constellation key={constellation.name} {...constellation} />
       ))}
-    </StarField>
+      </div>
   );
 };
 
