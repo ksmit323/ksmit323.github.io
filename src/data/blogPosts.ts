@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
     title: "Zero Knowledge Bootcamp: My Six-Week Dive into the World of ZK Proofs",
     date: "2024-06-28",
     readTime: "9 min",
-    excerpt: "Exploring the fascinating world of ZK proofs, ZK-SNARKs and the future of Cryptography",
+    excerpt: "My journey through a ZK Bootcamp as told through an adventure story",
     slug: "zkbootcamp"
   },
   {
@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     title: "Vietnam Rust Web3 Hackathon: Becoming a finalist and a speaker at a Blockchain conference",
     date: "2024-06-07",
     readTime: "8 min",
-    excerpt: "My experience building a market maker bot for a Rust Web3 hackathon in Vietnam",
+    excerpt: "My experience in the Vietnam Rust Hackathon as told through an adventure story",
     slug: "vietnam-rust-hackathon"
   },
   {
