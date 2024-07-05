@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Download, ChevronRight } from 'lucide-react';
 import StarField from '@/components/StarField';
+import CosmicBackground from '@/components/CosmicBackground';
 
 
 const CosmicAboutPage: React.FC = () => {
@@ -12,7 +13,7 @@ const CosmicAboutPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-purple-900 text-white p-8 relative overflow-hidden">
-      <StarField />
+      <CosmicBackground />
 
       {/* Nebula Effect */}
       <motion.div
