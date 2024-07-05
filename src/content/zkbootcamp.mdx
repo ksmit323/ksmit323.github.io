@@ -75,6 +75,29 @@ Noir Compilation Flow
 <br></br>
 
 Fawkes, our equally brilliant engineer, took the liberty of deciphering the constellation's flow, revealing the language it wanted to speak out into the galaxy:
+<br></br>
+
+###### Application Layer
+        - The voyage begins with writing a Noir program.  This high-level code defines the logic and constraints of our ZK proof
+<br></br>
+###### Intermediate Representation
+        - The Noir program is compiled into an ACIR (Abstract Circuit Intermediate Representation). ACIR's act as a bridge for backend systems. They can easily be transformed into different circuit-based contraint systems used by zkSNARK systems
+<br></br>
+###### Backend Proving systems
+        - The ACIR connects with different backend proving systems.  These systems (i.e. Plonk, Barrentenberg, Halo2, etc.) are responsible for generating the actual ZK proofs.  Each backend system has its own strengths and optimizations.
+<br></br>
+###### Verifier Contract
+        - Once the proof is generated, it needs to be verified. This is where we invoke the <BlueHighlight>Solidity</ BlueHighlight> verifier contract.  The verifier contract, written in Solidity, ensures the proof's validity on the blockchain.
+<br></br>
+###### Blockchains
+        - Finally, the verifier contract is deployed on a blockchain (Ethereum, Optimism, Arbitrum, Solana, Cosmos, etc.). The verifier contract can be used to validate proofs across these chains.
+<br></br>
+
+## Week 5-6: The Final Countdown
+
+
+
+
 
 
 
