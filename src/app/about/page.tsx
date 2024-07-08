@@ -3,11 +3,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Download, ChevronRight } from 'lucide-react';
-import StarField from '@/components/StarField';
 import CosmicBackground from '@/components/CosmicBackground';
 
 
-const CosmicAboutPage: React.FC = () => {
+const AboutPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState('bio');
   const sections = ['bio', 'skills', 'achievements', 'contact'];
 
@@ -238,4 +237,4 @@ const CosmicAboutPage: React.FC = () => {
   );
 };
 
-export default CosmicAboutPage
+export default AboutPage
