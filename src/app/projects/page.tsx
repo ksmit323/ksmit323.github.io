@@ -277,7 +277,7 @@ const CosmicProjectsPage = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        WORK IN PROGRESS !!!!
+        CODING NEBULAE - WORK IN PROGRESS !!!!
       </motion.h1>
 
       {nebulae.map((nebula, index) => (
