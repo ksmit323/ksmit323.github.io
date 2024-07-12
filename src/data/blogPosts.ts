@@ -10,18 +10,18 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 6,
-    title: "Zero Knowledge Bootcamp: My Six-Week Dive into the World of ZK Proofs",
+    title: "A zero knowledge story",
     date: "2024-06-28",
     readTime: "9 min",
-    excerpt: "My journey through a ZK Bootcamp as told through an adventure story",
+    excerpt: "An adventure story of my journey through a six-week ZK educational bootcamp",
     slug: "zkbootcamp"
-  },
+  }, 
   {
     id: 5,
     title: "Vietnam Rust Web3 Hackathon: Becoming a finalist and a speaker at a Blockchain conference",
     date: "2024-06-07",
     readTime: "8 min",
-    excerpt: "My experience in the Vietnam Rust Hackathon as told through an adventure story",
+    excerpt: "An adventure story of my experience in the Vietnam Rust Hackathon",
     slug: "vietnam-rust-hackathon"
   },
   {
