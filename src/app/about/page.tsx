@@ -122,7 +122,7 @@ const AboutPage: React.FC = () => {
                   <div>
                     <h2 className="text-3xl font-bold mb-4">Cosmic Toolkit</h2>
                     <ul className="grid grid-cols-2 gap-4">
-                      {['Solidity', 'C', 'Rust', 'Typescript', 'Python', 'Move/Noir/Cairo'].map(
+                      {['Smart Contract Developement', 'Solidity Design Patterns', 'Gas Optimization Techniques', 'DeFi Protocol Designs', 'EVM Security Best Practices', 'Testing and Auditing Methodologies'].map(
                         (skill, index) => (
                           <motion.li
                             key={skill}
