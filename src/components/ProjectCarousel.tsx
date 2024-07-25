@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Github, ExternalLink, Star } from 'lucide-react';
+import * as THREE from 'three';
 
 const projects = [
   {
@@ -8,7 +9,7 @@ const projects = [
     longDescription: "Buzzkill: Honeycomb Hustle is a blockchain-based game on the EVM where players stake bee NFTs in various hives to earn ERC20 honey tokens. This NFT staking game combines digital asset ownership with immersive gameplay. Players can engage in activities such as raiding other hives for honey, foraging for resources, and constructing new buildings in their hive. The game leverages EVM capabilities to create a rewarding experience for NFT enthusiasts, offering a unique blend of strategy and blockchain technology.",
     type: "Blockchain Gaming",
     techStack: "Solidity, React, Foundry, Ethereum, Typescript",
-    image: "/sun.png",
+    image: "/sun.jpg",
     galaxy: "/galaxy1.jpg",
     github: "https://github.com/ksmit323/buzzkill-smart-contracts",
     liveDemo: "https://www.loom.com/share/ea6aead1edf24aa3b89d52498c0a9212",
@@ -26,7 +27,7 @@ const projects = [
     longDescription: "DeFi Funding Rate Arbitrage is a project developed for the Encode Scaling Web3 Hackathon. It focuses on arbitraging funding rates across different DEXs for perpetual contracts. The platform retrieves funding rates from multiple DEXs, compares them, and applies an arbitrage strategy to maximize profit. By leveraging the differences in funding rates, traders can earn profits by going short on one DEX with a higher funding rate and long on another with a lower rate.",
     type: "DeFi",
     techStack: "Python, Web3.py, DEX SDK's, Ethereum L2's",
-    image: "/mars.png",
+    image: "/jupiter.jpg",
     galaxy: "/galaxy2.jpg",
     github: "https://github.com/ksmit323/funding-rate-arbitrage",
     liveDemo: "https://orderly.network/blog/best-use-orderly-encode-hackathon-winners",
@@ -44,7 +45,7 @@ const projects = [
     longDescription: "Developed for the Vietnam Rust Hackathon, the Cube Market Maker is a trading bot designed to provide liquidity on the Cube Exchange. Utilizing Rust's powerful async capabilities, this project implements a market maker that continuously places buy and sell orders to capture spreads and maintain market liquidity. The bot features real-time market data processing, configurable trading parameters, and an interactive console for monitoring performance.",
     type: "DeFi",
     techStack: "Rust, DEX SDK",
-    image: "/jupiter.png",
+    image: "/mars.jpg",
     galaxy: "/galaxy3.jpg",
     github: "https://github.com/ksmit323/cube_market_maker",
     liveDemo: "https://www.loom.com/share/7bd10a906661499c897a355dd0c9f76b?sid=c19d6163-e14d-4b7b-8cfa-a77252fa260c",
@@ -59,18 +60,89 @@ const projects = [
   }
 ];
 
+interface RotatingPlanetProps {
+  image: string;
+}
+
+const RotatingPlanet: React.FC<RotatingPlanetProps> = ({ image }) => {
+  const mountRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    const width = 450;
+    const height = 450;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(width, height);
+    mountRef.current.appendChild(renderer.domElement);
+
+    const geometry = new THREE.SphereGeometry(2.5, 64, 64);
+    const texture = new THREE.TextureLoader().load(image);
+    
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        planetTexture: { value: texture },
+        brightness: { value: 0.8 },
+        contrast: { value: 1.2 },
+      },
+      vertexShader: `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform sampler2D planetTexture;
+        uniform float brightness;
+        uniform float contrast;
+        varying vec2 vUv;
+        void main() {
+          vec4 texColor = texture2D(planetTexture, vUv);
+          texColor.rgb = (texColor.rgb - 0.5) * contrast + 0.5;
+          texColor.rgb *= brightness;
+          gl_FragColor = texColor;
+        }
+      `,
+    });
+
+    const sphere = new THREE.Mesh(geometry, material);
+
+    scene.add(sphere);
+    camera.position.z = 5;
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    return () => {
+      if (mountRef.current) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+    };
+  }, [image]);
+
+  return <div ref={mountRef} className="w-[450px] h-[450px]" />;
+};
+
 const ProjectCarousel = () => {
   const [index, setIndex] = useState(0);
   const [degrees, setDegrees] = useState(0);
 
   const handleNext = () => {
     setIndex((prevIndex) => (prevIndex + 1) % projects.length);
-    setDegrees((prevDegrees) => prevDegrees + 60);
+    setDegrees((prevDegrees) => prevDegrees - 60); // Changed to negative to rotate right
   };
 
   const handlePrev = () => {
     setIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
-    setDegrees((prevDegrees) => prevDegrees - 60);
+    setDegrees((prevDegrees) => prevDegrees + 60); // Changed to positive to rotate left
   };
 
   const currentProject = projects[index];
@@ -150,21 +222,9 @@ const ProjectCarousel = () => {
             </div>
           </div>
           
-          {/* Right side: Project Image */}
+          {/* Right side: Rotating Planet */}
           <div className="w-1/2 flex items-center justify-center">
-            <div 
-              className="relative w-96 h-96"
-              style={{
-                transform: `rotate(${degrees}deg)`,
-                transition: 'transform 0.5s ease-in-out',
-              }}
-            >
-              <img
-                src={currentProject.image}
-                alt={currentProject.name}
-                className="w-full h-full object-contain"
-              />
-            </div>
+            <RotatingPlanet image={currentProject.image} />
           </div>
         </div>
       </div>
@@ -174,7 +234,7 @@ const ProjectCarousel = () => {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-          animation: pulse 2s infinite;
+          animation: pulse 5s infinite
         }
         @keyframes pulse {
           0% { transform: scale(1); }
