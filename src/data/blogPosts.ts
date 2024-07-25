@@ -10,7 +10,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 6,
-    title: "A zero knowledge story",
+    title: "A Zero Knowledge story",
     date: "2024-06-28",
     readTime: "9 min",
     excerpt: "An adventure story of my journey through a six-week ZK educational bootcamp",
