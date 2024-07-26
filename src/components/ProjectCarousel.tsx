@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Github, ExternalLink, Star } from 'lucide-react';
 import * as THREE from 'three';
 
-
 const projects = [
   {
     name: "BuzzKill NFT P2E Game",
@@ -74,8 +73,8 @@ const RotatingPlanet: React.FC<RotatingPlanetProps> = ({ image }) => {
   useEffect(() => {
     if (!mountRef.current) return;
 
-    let width = Math.min(450, window.innerWidth - 40);
-    let height = width;
+    const width = 450;
+    const height = 450;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -152,36 +151,13 @@ const RotatingPlanet: React.FC<RotatingPlanetProps> = ({ image }) => {
       isDraggingRef.current = false;
     };
 
-    const updateSize = () => {
-      width = Math.min(450, window.innerWidth - 40);
-      height = width;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
-    };
-
     renderer.domElement.addEventListener('mousedown', handleMouseDown);
     renderer.domElement.addEventListener('mousemove', handleMouseMove);
     renderer.domElement.addEventListener('mouseup', handleMouseUp);
     renderer.domElement.addEventListener('mouseleave', handleMouseUp);
-    window.addEventListener('resize', updateSize);
 
-    // Custom cursor
-    renderer.domElement.style.cursor = 'none';
-    const cursorDiv = document.createElement('div');
-    cursorDiv.textContent = '🌠';  // Unicode character for shooting star
-    cursorDiv.style.position = 'fixed';
-    cursorDiv.style.pointerEvents = 'none';
-    cursorDiv.style.zIndex = '9999';
-    cursorDiv.style.fontSize = '24px';
-    document.body.appendChild(cursorDiv);
-
-    const updateCursorPosition = (e: MouseEvent) => {
-      cursorDiv.style.left = `${e.clientX}px`;
-      cursorDiv.style.top = `${e.clientY}px`;
-    };
-
-    renderer.domElement.addEventListener('mousemove', updateCursorPosition);
+    // Add custom cursor
+    renderer.domElement.style.cursor = 'url("/arrows-move.svg"), auto';
 
     return () => {
       if (mountRef.current) {
@@ -191,33 +167,30 @@ const RotatingPlanet: React.FC<RotatingPlanetProps> = ({ image }) => {
       renderer.domElement.removeEventListener('mousemove', handleMouseMove);
       renderer.domElement.removeEventListener('mouseup', handleMouseUp);
       renderer.domElement.removeEventListener('mouseleave', handleMouseUp);
-      renderer.domElement.removeEventListener('mousemove', updateCursorPosition);
-      window.removeEventListener('resize', updateSize);
-      document.body.removeChild(cursorDiv);
     };
   }, [image]);
 
-  return <div ref={mountRef} className="w-full max-w-[450px] h-auto aspect-square" />;
+  return <div ref={mountRef} className="w-[450px] h-[450px]" />;
 };
 
-const ProjectCarousel: React.FC = () => {
+const ProjectCarousel = () => {
   const [index, setIndex] = useState(0);
   const [degrees, setDegrees] = useState(0);
 
   const handleNext = () => {
     setIndex((prevIndex) => (prevIndex + 1) % projects.length);
-    setDegrees((prevDegrees) => prevDegrees - 60);
+    setDegrees((prevDegrees) => prevDegrees - 60); // Changed to negative to rotate right
   };
 
   const handlePrev = () => {
     setIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
-    setDegrees((prevDegrees) => prevDegrees + 60);
+    setDegrees((prevDegrees) => prevDegrees + 60); // Changed to positive to rotate left
   };
 
   const currentProject = projects[index];
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden px-4 py-8">
+    <div className="relative w-full h-screen overflow-hidden">
       {/* Galaxy Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
@@ -233,26 +206,42 @@ const ProjectCarousel: React.FC = () => {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black bg-opacity-60" />
 
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
-        <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto space-y-8 md:space-y-0 md:space-x-8">
-          {/* Project Information */}
-          <div className="w-full md:w-1/2 space-y-6">
+      <div className="relative z-10 w-full h-full flex items-center justify-center">
+        <div className="absolute inset-y-0 left-0 flex items-center">
+          <button
+            onClick={handlePrev}
+            className="text-white bg-gray-800 bg-opacity-50 rounded-full p-2 ml-4 hover:bg-opacity-75 transition-colors"
+          >
+            <ChevronLeft size={24} />
+          </button>
+        </div>
+        <div className="absolute inset-y-0 right-0 flex items-center">
+          <button
+            onClick={handleNext}
+            className="text-white bg-gray-800 bg-opacity-50 rounded-full p-2 mr-4 hover:bg-opacity-75 transition-colors"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
+        <div className="flex w-full max-w-7xl mx-auto px-4 space-x-8">
+          {/* Left side: Project Information */}
+          <div className="w-1/2 space-y-6">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-2 cosmic-title">{currentProject.name}</h2>
-              <p className="text-lg md:text-xl stellar-text">{currentProject.shortDescription}</p>
+              <h2 className="text-5xl font-bold mb-2 cosmic-title">{currentProject.name}</h2>
+              <p className="text-xl stellar-text">{currentProject.shortDescription}</p>
             </div>
             <div className="nebula-info">
-              <p className="text-base md:text-lg mb-4">{currentProject.longDescription}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <p className="text-lg mb-4">{currentProject.longDescription}</p>
+              <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <strong>Type:</strong> {currentProject.type}
                 </div>
-                <div className="col-span-1 md:col-span-2">
+                <div className="col-span-2">
                   <strong>Tech Stack:</strong> {currentProject.techStack}
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex space-x-4">
               <a href={currentProject.github} target="_blank" rel="noopener noreferrer" className="cosmic-button">
                 <Github size={20} />
                 <span>GitHub</span>
@@ -263,7 +252,7 @@ const ProjectCarousel: React.FC = () => {
               </a>
             </div>
             <div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2 stellar-text">Key Features</h3>
+              <h3 className="text-2xl font-bold mb-2 stellar-text">Key Features</h3>
               <ul className="space-y-2">
                 {currentProject.keyFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start space-x-2">
@@ -275,26 +264,10 @@ const ProjectCarousel: React.FC = () => {
             </div>
           </div>
           
-          {/* Rotating Planet */}
-          <div className="w-full md:w-1/2 flex items-center justify-center">
+          {/* Right side: Rotating Planet */}
+          <div className="w-1/2 flex items-center justify-center">
             <RotatingPlanet image={currentProject.image} />
           </div>
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="flex justify-between w-full mt-8">
-          <button
-            onClick={handlePrev}
-            className="text-white bg-gray-800 bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={handleNext}
-            className="text-white bg-gray-800 bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors"
-          >
-            <ChevronRight size={24} />
-          </button>
         </div>
       </div>
       <style jsx>{`
