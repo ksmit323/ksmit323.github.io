@@ -66,6 +66,9 @@ interface RotatingPlanetProps {
 
 const RotatingPlanet: React.FC<RotatingPlanetProps> = ({ image }) => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const sphereRef = useRef<THREE.Mesh | null>(null);
+  const isDraggingRef = useRef(false);
+  const previousMousePositionRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -110,21 +113,60 @@ const RotatingPlanet: React.FC<RotatingPlanetProps> = ({ image }) => {
     });
 
     const sphere = new THREE.Mesh(geometry, material);
+    sphereRef.current = sphere;
 
     scene.add(sphere);
     camera.position.z = 5;
 
     const animate = () => {
       requestAnimationFrame(animate);
-      sphere.rotation.y += 0.005;
+      if (!isDraggingRef.current) {
+        sphere.rotation.y += 0.005;
+      }
       renderer.render(scene, camera);
     };
     animate();
+
+    const handleMouseDown = (event: MouseEvent) => {
+      isDraggingRef.current = true;
+      previousMousePositionRef.current = { x: event.clientX, y: event.clientY };
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      if (!isDraggingRef.current || !sphereRef.current) return;
+
+      const deltaMove = {
+        x: event.clientX - previousMousePositionRef.current.x,
+        y: event.clientY - previousMousePositionRef.current.y
+      };
+
+      const rotationSpeed = 0.005;
+      sphereRef.current.rotation.y += deltaMove.x * rotationSpeed;
+      sphereRef.current.rotation.x += deltaMove.y * rotationSpeed;
+
+      previousMousePositionRef.current = { x: event.clientX, y: event.clientY };
+    };
+
+    const handleMouseUp = () => {
+      isDraggingRef.current = false;
+    };
+
+    renderer.domElement.addEventListener('mousedown', handleMouseDown);
+    renderer.domElement.addEventListener('mousemove', handleMouseMove);
+    renderer.domElement.addEventListener('mouseup', handleMouseUp);
+    renderer.domElement.addEventListener('mouseleave', handleMouseUp);
+
+    // Add custom cursor
+    renderer.domElement.style.cursor = 'url("/arrows-move.svg"), auto';
 
     return () => {
       if (mountRef.current) {
         mountRef.current.removeChild(renderer.domElement);
       }
+      renderer.domElement.removeEventListener('mousedown', handleMouseDown);
+      renderer.domElement.removeEventListener('mousemove', handleMouseMove);
+      renderer.domElement.removeEventListener('mouseup', handleMouseUp);
+      renderer.domElement.removeEventListener('mouseleave', handleMouseUp);
     };
   }, [image]);
 
