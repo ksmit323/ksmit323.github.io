@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Download, ChevronRight } from 'lucide-react';
+import { Star, Download, ChevronRight, Rocket, Earth, Zap } from 'lucide-react';
 import CosmicBackground from '@/components/CosmicBackground';
-
 
 const AboutPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState('bio');
@@ -14,31 +13,17 @@ const AboutPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-black to-purple-900 text-white p-8 relative overflow-hidden">
       <CosmicBackground />
 
-      {/* Nebula Effect */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 pointer-events-none"
-        animate={{
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
-      />
-
       <div className="container mx-auto relative z-10">
         <motion.h1
-          className="text-6xl font-bold mb-8 text-center"
+          className="text-6xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          About this Cosmic Explorer
+          About This Cosmic Explorer
         </motion.h1>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Profile picture */}
           <motion.div
             className="md:w-1/3"
             initial={{ x: -100, opacity: 0 }}
@@ -66,9 +51,7 @@ const AboutPage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Content */}
           <div className="md:w-2/3">
-            {/* Navigation */}
             <motion.div
               className="flex justify-center mb-8"
               initial={{ y: 50, opacity: 0 }}
@@ -82,15 +65,18 @@ const AboutPage: React.FC = () => {
                     activeSection === section
                       ? 'bg-blue-500 text-white'
                       : 'bg-gray-700 text-gray-300'
-                  } transition-colors duration-300`}
+                  } transition-colors duration-300 hover:bg-blue-400`}
                   onClick={() => setActiveSection(section)}
                 >
+                  {section === 'bio' && <Rocket className="inline mr-2" />}
+                  {section === 'skills' && <Zap className="inline mr-2" />}
+                  {section === 'achievements' && <Star className="inline mr-2" />}
+                  {section === 'contact' && <Earth className="inline mr-2" />}
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </button>
               ))}
             </motion.div>
             
-            {/* Content Sections */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeSection}
@@ -98,31 +84,30 @@ const AboutPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gray-800/50 backdrop-blur-md rounded-lg p-6 shadow-lg"
+                className="bg-gray-800/50 backdrop-blur-md rounded-lg p-6 shadow-lg border border-blue-500/30"
               >
-                {activeSection == 'bio' && (
+                {activeSection === 'bio' && (
                   <div>
-                    <h2 className="text-3xl font-bold mb-4">Kenneth Scott Smith</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-blue-400">Kenneth Scott Smith</h2>
                     <p className="mb-4">
                       Greetings fellow Cryptonauts! My name is Kenneth Scott Smith, a cosmic explorer
                       navigating the vast universe of the Crypto Cosmos.  With a passion
                       for Blockchain, I have embarked on a mission to bring Crypto to every
-                      corner of the universe.
+                      corner of the universe.                    
                     </p>
                     <p>
                       My journey through the Crypto Cosmos has led me to discover fascinating
                       new worlds of ideas and innovations.  Join me as we traverse the galaxies
                       of software development in the Blockchain space, charting new territories
-                      and pushing the boundaries of what is possible. 
-                    </p>
+                      and pushing the boundaries of what is possible.                     </p>
                   </div>
                 )}
 
                 {activeSection === 'skills' && (
                   <div>
-                    <h2 className="text-3xl font-bold mb-4">Cosmic Toolkit</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-blue-400">Cosmic Toolkit</h2>
                     <ul className="grid grid-cols-2 gap-4">
-                      {['Smart Contract Developement', 'Solidity Design Patterns', 'Gas Optimization Techniques', 'DeFi Protocol Designs', 'EVM Security Best Practices', 'Testing and Auditing Methodologies'].map(
+                        {['Smart Contract Developement', 'Solidity Design Patterns', 'Gas Optimization Techniques', 'DeFi Protocol Designs', 'EVM Security Best Practices', 'Testing and Auditing Methodologies'].map(
                         (skill, index) => (
                           <motion.li
                             key={skill}
@@ -142,7 +127,7 @@ const AboutPage: React.FC = () => {
 
                 {activeSection === 'achievements' && (
                   <div>
-                    <h2 className="text-3xl font-bold mb-4">Celestial Milestones</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-blue-400">Celestial Milestones</h2>
                     <ul className="space-y-4">
                       {[
                         '🥇 1st Place - Scaling Web3 Hackathon, Orderly Network Bounty',
@@ -170,7 +155,7 @@ const AboutPage: React.FC = () => {
 
                 {activeSection === 'contact' && (
                   <div>
-                    <h2 className="text-3xl font-bold mb-4">Message me!</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-blue-400">Intergalactic Communication Channels</h2>
                     <ul className="space-y-4">
                       {[
                         'Email: ksmit323@gmail.com',
@@ -191,11 +176,9 @@ const AboutPage: React.FC = () => {
                     </ul>
                   </div>
                 )}
-
               </motion.div>
             </AnimatePresence>
 
-            {/* CV Download Button */}
             <motion.div
               className="mt-8 text-center"
               initial={{ opacity: 0, y: 50 }}
@@ -205,28 +188,27 @@ const AboutPage: React.FC = () => {
               <a
                 href="/Kenneth_Smith_CV.pdf"
                 download
-                className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-colors duration-300 animate-pulse"
               >
                 <Download className="mr-2" />
-                Download Cosmic CV
+                Download Interstellar CV
               </a>
             </motion.div>
 
-            {/* CV Viewer */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.5 }}
               className="mt-8"
             >
-              <div className="bg-white rounded-lg shadow-lg p-4 h-[600px]">
+              <div className="bg-gray-800/70 rounded-lg shadow-lg p-4 h-[600px] border border-blue-500/30">
                 <object
                   data="/Kenneth_Smith_CV.pdf"
                   type="application/pdf"
                   width="100%"
                   height="100%"
                 >
-                  <p>It appears you do not have a PDF plugin for this browser. You can <a href="/Kenneth_Smith_CV.pdf">click here to download the PDF file</a></p>
+                  <p>It appears you do not have a PDF plugin for this browser. You can <a href="/Kenneth_Smith_CV.pdf" className="text-blue-400 hover:underline">click here to download the PDF file</a></p>
                 </object>
               </div>
             </motion.div>
@@ -237,4 +219,4 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage
+export default AboutPage;
