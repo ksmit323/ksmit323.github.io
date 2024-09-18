@@ -28,7 +28,7 @@ const components = {
 const BlogContent = ({ post }: { post: BlogPost }) => {
   if (!post) notFound();
 
-  const BlogPostContent = dynamic(() => import(`@/content/${post.slug}.mdx`), {
+  const BlogPostContent = dynamic(() => import(`@/data/${post.slug}.mdx`), {
     loading: () => <p>Loading...</p>,
   });
 
