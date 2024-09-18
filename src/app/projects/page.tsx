@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React from 'react';
 import StarField from '@/components/StarField';
 import ProjectCarousel from '../../components/projects/ProjectCarousel';
 

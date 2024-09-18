@@ -1,1 +1,2 @@
-w
+- resizing for different sized screens
+- mobile use

@@ -10,7 +10,7 @@ const projects = [
     type: "Blockchain Gaming",
     techStack: "Solidity, React, Foundry, Ethereum, Typescript",
     image: "/pluto.jpg",
-    galaxy: "/galaxy4.jpg",
+    galaxy: "/galaxy4.webp",
     github: "https://github.com/ksmit323/buzzkill-smart-contracts",
     liveDemo: "https://www.loom.com/share/ea6aead1edf24aa3b89d52498c0a9212",
     keyFeatures: [
@@ -28,7 +28,7 @@ const projects = [
     type: "DeFi",
     techStack: "Python, Web3.py, DEX SDK's, Ethereum L2's",
     image: "/jupiter.jpg",
-    galaxy: "/galaxy2.jpg",
+    galaxy: "/galaxy2.webp",
     github: "https://github.com/ksmit323/funding-rate-arbitrage",
     liveDemo: "https://orderly.network/blog/best-use-orderly-encode-hackathon-winners",
     keyFeatures: [
@@ -45,9 +45,8 @@ const projects = [
     longDescription: "Developed for the Vietnam Rust Hackathon, the Cube Market Maker is a trading bot designed to provide liquidity on the Cube Exchange. Utilizing Rust's powerful async capabilities, this project implements a market maker that continuously places buy and sell orders to capture spreads and maintain market liquidity. The bot features real-time market data processing, configurable trading parameters, and an interactive console for monitoring performance.",
     type: "DeFi",
     techStack: "Rust, DEX SDK",
-    // image: "/image copy 5.png",
     image: "/mars.png",
-    galaxy: "/galaxy3.jpg",
+    galaxy: "/galaxy3.webp",
     github: "https://github.com/ksmit323/cube_market_maker",
     liveDemo: "https://www.loom.com/share/7bd10a906661499c897a355dd0c9f76b?sid=c19d6163-e14d-4b7b-8cfa-a77252fa260c",
     keyFeatures: [
