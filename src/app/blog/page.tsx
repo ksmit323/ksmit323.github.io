@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { blogPosts } from '@/data/blogPosts';
-import BlogPostCard from '@/components/BlogPostCard';
+import BlogPostCard from '@/components/blog/BlogPostCard';
 import CosmicBackground from '@/components/CosmicBackground';
 
 
