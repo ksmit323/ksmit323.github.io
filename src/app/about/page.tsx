@@ -159,7 +159,6 @@ const AboutPage: React.FC = () => {
                     <ul className="space-y-4">
                       {[
                         'Email: ksmit323@gmail.com',
-                        'Telegram: @ksmit323',
                         'Discord: mrpresident323',
                       ].map((contact, index) => (
                         <motion.li
